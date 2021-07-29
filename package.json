@@ -8,6 +8,8 @@
     "email": "miguel.camba@gmail.com"
   },
   "license": "MIT",
+  "type": "module",
+  "main": "./dist/modules/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "test": "jest test"

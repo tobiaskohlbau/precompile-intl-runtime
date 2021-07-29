@@ -1,8 +1,8 @@
-import { writable } from 'svelte/store'
+import { writable } from 'svelte/store';
+import { flush, hasLocaleQueue } from '../includes/loaderQueue.js';
+import { getCurrentLocale, setCurrentLocale } from '../includes/utils.js';
+import { getClosestAvailableLocale } from './dictionary.js';
 
-import { flush, hasLocaleQueue } from '../includes/loaderQueue'
-import { getCurrentLocale, setCurrentLocale } from '../includes/utils';
-import { getClosestAvailableLocale } from './dictionary'
 
 const $locale = writable('')
 
@@ -29,4 +29,5 @@ $locale.update = (fn: (locale: string) => void) => {
   localeSet(currentLocale);
 }
 
-export { $locale }
+export { $locale };
+

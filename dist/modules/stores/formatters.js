@@ -1,11 +1,11 @@
 // @ts-ignore
 import { derived } from "svelte/store";
-import { lookup } from '../includes/lookup';
-import { hasLocaleQueue } from '../includes/loaderQueue';
-import { getTimeFormatter, getDateFormatter, getNumberFormatter, } from '../includes/formatters';
-import { getOptions, getCurrentLocale, getPossibleLocales } from '../includes/utils';
-import { $dictionary } from './dictionary';
-import { $locale } from './locale';
+import { getDateFormatter, getNumberFormatter, getTimeFormatter } from '../includes/formatters.js';
+import { hasLocaleQueue } from '../includes/loaderQueue.js';
+import { lookup } from '../includes/lookup.js';
+import { getCurrentLocale, getOptions, getPossibleLocales } from '../includes/utils.js';
+import { $dictionary } from './dictionary.js';
+import { $locale } from './locale.js';
 export const formatMessage = (id, options = { id: '#missing-message-id#' }) => {
     if (typeof id === 'object') {
         options = id;

@@ -1,7 +1,7 @@
 // @ts-ignore
-import { writable, derived } from 'svelte/store';
-import { LocaleDictionary, DeepDictionary, Dictionary } from '../types/index';
-import { getPossibleLocales } from '../includes/utils';
+import { derived, writable } from 'svelte/store';
+import { getPossibleLocales } from '../includes/utils.js';
+import { DeepDictionary, Dictionary, LocaleDictionary } from '../types/index.js';
 
 let dictionary: Dictionary
 const $dictionary = writable<Dictionary>({})
@@ -58,4 +58,5 @@ const $locales = /*@__PURE__*/derived([$dictionary], ([$dictionary]) =>
 );
 $dictionary.subscribe(newDictionary => (dictionary = newDictionary))
 
-export { $dictionary, $locales }
+export { $dictionary, $locales };
+

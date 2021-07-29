@@ -1,11 +1,10 @@
-import { MessagesLoader } from '../types/index'
+import { getOptions, getPossibleLocales } from '../includes/utils.js';
 import {
-  hasLocaleDictionary,
-  $dictionary,
-  addMessages,
-} from '../stores/dictionary'
-import { getPossibleLocales, getOptions } from '../includes/utils';
-import { $isLoading } from '../stores/loading'
+    $dictionary,
+    addMessages, hasLocaleDictionary
+} from '../stores/dictionary.js';
+import { $isLoading } from '../stores/loading.js';
+import { MessagesLoader } from '../types/index.js';
 
 type Queue = Set<MessagesLoader>
 const loaderQueue: Record<string, Queue> = {}

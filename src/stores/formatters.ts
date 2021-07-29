@@ -1,24 +1,20 @@
 // @ts-ignore
 import { derived } from "svelte/store";
-
 import {
-  MessageFormatter,
-  MessageObject,
-  TimeFormatter,
-  DateFormatter,
-  NumberFormatter,
-} from '../types/index'
-import { lookup } from '../includes/lookup'
-import { hasLocaleQueue } from '../includes/loaderQueue'
+    getDateFormatter,
+    getNumberFormatter, getTimeFormatter
+} from '../includes/formatters.js';
+import { hasLocaleQueue } from '../includes/loaderQueue.js';
+import { lookup } from '../includes/lookup.js';
+import { getCurrentLocale, getOptions, getPossibleLocales } from '../includes/utils.js';
 import {
-  getTimeFormatter,
-  getDateFormatter,
-  getNumberFormatter,
-} from '../includes/formatters'
-import { getOptions, getCurrentLocale, getPossibleLocales } from '../includes/utils';
+    DateFormatter, MessageFormatter,
+    MessageObject, NumberFormatter, TimeFormatter
+} from '../types/index.js';
+import { $dictionary } from './dictionary.js';
+import { $locale } from './locale.js';
 
-import { $dictionary } from './dictionary'
-import { $locale } from './locale'
+
 
 export const formatMessage: MessageFormatter = (id, options = {id: '#missing-message-id#'}) => {
   if (typeof id === 'object') {
@@ -56,14 +52,14 @@ export const formatMessage: MessageFormatter = (id, options = {id: '#missing-mes
 
     return defaultValue || id;
   }
-  
+
   if (typeof message === 'string') {
     return message;
   } else {
     return message(...Object.keys(options.values || {}).sort().map(k => (options.values || {})[k]));
-  }    
+  }
 };
-  
+
 
 export const formatTime: TimeFormatter = (t, options) =>
   getTimeFormatter(options).format(t)

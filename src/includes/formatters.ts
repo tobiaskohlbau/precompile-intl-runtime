@@ -1,6 +1,6 @@
-import { MemoizedIntlFormatter } from '../types/index'
-import { getOptions, getCurrentLocale } from './utils';
-import { monadicMemoize } from './memoize'
+import { MemoizedIntlFormatter } from '../types/index.js';
+import { monadicMemoize } from './memoize.js';
+import { getCurrentLocale, getOptions } from './utils.js';
 
 const getIntlFormatterOptions = (
   type: 'time' | 'number' | 'date',

@@ -1,19 +1,19 @@
-import { flush } from './includes/loaderQueue';
-import { getOptions, getCurrentLocale } from './includes/utils';
-export * from './includes/localeGetters';
-export * from './includes/utils';
+import { flush } from './includes/loaderQueue.js';
+import { getCurrentLocale, getOptions } from './includes/utils.js';
+import { formatDate, formatNumber, formatTime } from './stores/formatters.js';
+export { init } from './configs.js';
+// low-level
+export { getDateFormatter, getNumberFormatter, getTimeFormatter } from './includes/formatters.js';
+export { registerLocaleLoader as register } from './includes/loaderQueue.js';
+export * from './includes/localeGetters.js';
+export * from './includes/utils.js';
+export { $dictionary as dictionary, $locales as locales, addMessages } from './stores/dictionary.js';
+export { $format as format, $format as t, $format as _, $formatDate as date, $formatNumber as number, $formatTime as time } from './stores/formatters.js';
+export { $isLoading as isLoading } from './stores/loading.js';
+export { $locale as locale } from './stores/locale.js';
 export function waitLocale(locale) {
     return flush(locale || getCurrentLocale() || getOptions().initialLocale);
 }
-export { init } from './configs';
-export { $locale as locale } from './stores/locale';
-export { $dictionary as dictionary, $locales as locales, addMessages, } from './stores/dictionary';
-export { registerLocaleLoader as register } from './includes/loaderQueue';
-export { $isLoading as isLoading } from './stores/loading';
-import { formatTime, formatDate, formatNumber } from './stores/formatters';
-export { $format as format, $format as _, $format as t, $formatDate as date, $formatNumber as number, $formatTime as time, } from './stores/formatters';
-// low-level
-export { getDateFormatter, getNumberFormatter, getTimeFormatter, } from './includes/formatters';
 export function __interpolate(value) {
     return value === 0 ? 0 : value || '';
 }

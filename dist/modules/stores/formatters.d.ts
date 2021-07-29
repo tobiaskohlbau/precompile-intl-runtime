@@ -1,4 +1,4 @@
-import { MessageFormatter, TimeFormatter, DateFormatter, NumberFormatter } from '../types/index';
+import { DateFormatter, MessageFormatter, NumberFormatter, TimeFormatter } from '../types/index.js';
 export declare const formatMessage: MessageFormatter;
 export declare const formatTime: TimeFormatter;
 export declare const formatDate: DateFormatter;
